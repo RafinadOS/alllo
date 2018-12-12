@@ -31,5 +31,8 @@ function createElemenet(tag, param)
         }
     }
 
+    if(param.text)
+        element.innerText = param.text; 
+
     return element;
 }

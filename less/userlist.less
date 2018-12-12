@@ -1,0 +1,44 @@
+@borderColor:   #e6e6e6;
+
+.user-list {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background: #fff;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: @borderColor;
+    } 
+    &-item {
+        display: block;
+        position: relative;
+        padding: 25px 15px;
+        border-top: 1px solid @borderColor;
+        transition: .3s;
+        cursor: pointer;
+        &:hover {
+            background: #fff;
+        }
+        &:first-child {
+            border: none;
+        }
+        &-name {
+            display: block;
+            padding: 0;
+            font-size: 14px;
+            color: #333;
+            transition: .1s;
+        }
+    }
+}
+
+.user-list-item:hover .user-list-item-name {
+    padding-left: 7px;
+} 

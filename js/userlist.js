@@ -7,7 +7,8 @@ function UserList(options)
     this.targetNode = options.targetNode;
     this.layout = {
         container: null
-    }
+    };
+    this.loadData(options);
 }
 
 UserList.prototype = 
@@ -16,27 +17,48 @@ UserList.prototype =
     {
         options = options || {};
 
+        var user = new UserListItem(options);
+        user.userList = this;
+
+        this.users.push(user);
+    },
+
+    loadData: function(json)
+    {
+        json.users.forEach(function(item) {
+            this.addUser(item);
+        }, this);
     },
 
     getListWrapper: function()
     {
-        if(!this.layout.contaier)
+        if(!this.layout.container)
         {
-            this.layout.contaier = createElemenet('div')
+            this.layout.container = createElemenet('div',
+            {
+                class: 'user-list'
+            })
         };
 
-        return this.layout.contaier;
+        return this.layout.container;
     },
 
     draw: function()
     {
-        console.log(this.options.users)
+        var docFragment = document.createDocumentFragment();
+
+        for (var user in this.users)
+        {
+            docFragment.appendChild(this.users[user].render());
+        }
+
+        this.getListWrapper().appendChild(docFragment);
         this.targetNode.appendChild(this.getListWrapper());
     }
 };
 
 
-function UserListUser(options)
+function UserListItem(options)
 {
     this.id = options.id;
     this.name = options.name;
@@ -46,13 +68,17 @@ function UserListUser(options)
     }
 }
 
-UserListUser.prototype =
+UserListItem.prototype =
 {
     getNameNode: function()
     {
         if(!this.layout.name)
         {
-            this.layout.name = createElemenet('div')
+            this.layout.name = createElemenet('div', 
+            {
+                class: 'user-list-item-name',
+                text: this.name
+            })
         }
 
         return this.layout.name;
@@ -62,9 +88,13 @@ UserListUser.prototype =
         if(!this.layout.container)
         {
             this.layout.container = createElemenet('div', {
-                id: this.id
+                id: this.id,
+                class: 'user-list-item'
             });
+
+            this.layout.container.appendChild(this.getNameNode());
         }
+
         return this.layout.container;
     }
 }

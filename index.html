@@ -8,11 +8,14 @@
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<div id="users" class="area-list area-list-users"></div>
-<div id="chat" class="area-list area-list-chat"></div>
+
+<div class="area-wrapper">
+	<div id="users" class="area-list area-list--users"></div>
+	<div id="chat" class="area-list area-list--chat"></div>
+</div>
+
 <script src="./js/core.js"></script>
 <script src="./js/userlist.js"></script>
-
 
 <script>
 var users = new UserList({
@@ -29,13 +32,22 @@ var users = new UserList({
 		{
 			id: 'zsh82x',
 			name: 'Alex Avk'
+		},
+		{
+			id: 'x2mm42u0',
+			name: 'Masha Berkova'
+		},
+		{
+			id: 'x42n8',
+			name: 'Sveta Petrova'
+		},
+		{
+			id: 'zm2x9n20',
+			name: 'German Gr'
 		}
 	]
 });
 users.draw();
 </script>
-
-<style>
-</style>
 </body>
 </html>

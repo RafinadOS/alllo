@@ -15,7 +15,7 @@ gulp.task('connect', function() {
 
 // concat css
 gulp.task('concat-css', function () {
-   return gulp.src('css/*.css')
+   return gulp.src('css/style.css')
    .pipe(concatCss('style.css'))
    .pipe(gulp.dest('app/css'))
    .pipe(connect.reload());
@@ -30,7 +30,7 @@ gulp.task('html', function() {
 
 // less compilation
 gulp.task('less', function () {
-   return gulp.src('less/*.less')
+   return gulp.src('less/style.less')
    .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
    }))
