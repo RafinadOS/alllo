@@ -1,6 +1,13 @@
+'use strict';
+
 function createElemenet(tag, param)
 {
     var element = document.createElement(tag);
+
+    if(!param)
+    {
+        return element;
+    }
 
     if(param.className || param.class)
         element.className = param.className ? param.className : param.class;
@@ -18,13 +25,11 @@ function createElemenet(tag, param)
 
     if(param.style)
     {
-        var attrStyle = '';
         for(attribute in param.style)
         {
             element.style[attribute] = param.style[attribute];
         }
     }
 
-    console.log(element)
     return element;
 }

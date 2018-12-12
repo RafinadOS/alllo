@@ -15,31 +15,27 @@
 
 
 <script>
-	document.body.appendChild(
-		createElemenet('div', 
+var users = new UserList({
+	targetNode: document.getElementById('users'),
+	users: [
 		{
-			id: 'test',
-			class: 'test',
-			events: {
-				click: function()
-				{
-					console.log('click')
-				}
-			},
-			style: {
-				width: '200px'
-			}
-		})
-	)
+			id: 'zniqwuxuiw',
+			name: 'Ivan Che'
+		},
+		{
+			id: 'mjziqj92',
+			name: 'Pablo Rafeev'
+		},
+		{
+			id: 'zsh82x',
+			name: 'Alex Avk'
+		}
+	]
+});
+users.draw();
 </script>
 
 <style>
-.test {
-	display: block;
-	width: 200px;
-	height: 200px;
-	background: green;
-}
 </style>
 </body>
 </html>

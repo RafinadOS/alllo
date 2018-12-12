@@ -1,6 +1,13 @@
+'use strict';
+
 function createElemenet(tag, param)
 {
     var element = document.createElement(tag);
+
+    if(!param)
+    {
+        return element;
+    }
 
     if(param.className || param.class)
         element.className = param.className ? param.className : param.class;
