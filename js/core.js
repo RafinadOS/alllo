@@ -18,13 +18,11 @@ function createElemenet(tag, param)
 
     if(param.style)
     {
-        var attrStyle = '';
         for(attribute in param.style)
         {
             element.style[attribute] = param.style[attribute];
         }
     }
 
-    console.log(element)
     return element;
 }
