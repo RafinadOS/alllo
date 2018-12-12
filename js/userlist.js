@@ -3,6 +3,11 @@
 function UserList(options)
 {
 
-};
+}
+
+UserList.prototype = {};
+
+
+
 
 
